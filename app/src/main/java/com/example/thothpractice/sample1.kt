@@ -3,7 +3,9 @@ package com.example.thothpractice
 fun main() {
 
     forAndWhile()
+    nullCheck()
 
+    ignoreNulls("email")
 }
 
 // 4. 조건문
@@ -97,5 +99,37 @@ fun forAndWhile() {
     while (index < 10) {
         println("current index: ${index}")
         index++
+    }
+}
+
+// 7. Nullable / NonNull
+fun nullCheck() {
+    // NPE : Null Pointer Exception
+
+    var name: String = "Thoth"
+
+    var nullName: String? = null
+
+    var nameInUpperCase = name.toUpperCase()
+
+    var nullNameInUpperCase = nullName?.toUpperCase()
+
+    // ?: -> Null 이면 Default 값을 지정해서 리턴 해 줄 수 있다
+    val lastName: String? = null
+    val fullName = name + " " + (lastName ?: "No lastName")
+    println(fullName)
+
+
+}
+
+// !! -> null 이 아닌걸 보증해 줄께, 정말로 확실 하지 않는 이상 쓰지 말자
+fun ignoreNulls(str: String?) {
+    val mNotNull: String = str!!
+    val upper = mNotNull.toUpperCase()
+
+    val email: String? = null
+//    val email: String? = "kiyoung85@gmail.com"
+    email?.let {
+        println("my email is $it")
     }
 }
