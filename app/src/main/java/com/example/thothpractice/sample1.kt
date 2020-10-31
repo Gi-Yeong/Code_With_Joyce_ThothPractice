@@ -2,41 +2,42 @@ package com.example.thothpractice
 
 fun main() {
 
-    // 3. String Template
-
-    val name = "thoth"
-    val lastName = "Kim"
-    println("my name is ${name + lastName} I'm 36")
-
-    println("is this true? ${1==0}")
-    println("this is 2\$")
+    checkNum(1)
 
 }
 
-// 1. 함수
+// 4. 조건문
 
-fun helloWorld() {
-    println("Hello World")
+fun maxBy(a: Int, b: Int): Int {
+    if (a > b) {
+        return a
+    } else {
+        return b
+    }
 }
 
-fun add(a: Int, b: Int): Int {
-    return a + b
-}
+fun maxBy2(a: Int, b: Int) = if (a > b) a else b
 
-// 2. val vs var
-// val = value
-// var = variable
+fun checkNum(score: Int) {
+    when (score) {
+        0 -> println("this is 0")
+        1 -> println("this is 1")
+        2, 3 -> println("this is 2 or 3")
+        else -> println("I don't know")
+    }
+    
+    // 이때에는 else 를 꼭 써야 한다
+    var b = when(score) {
+        1 -> 1
+        2 -> 2
+        else -> 3
+    }
 
-fun hi() {
-    val a : Int = 10
-    var b : Int = 9
+    println("b : ${b}")
 
-    var e : String
-
-    b = 100
-
-    val c = 100
-    var d = 100
-
-    var name = "thoth"
+    when(score) {
+        in 90..100 -> println("You are genius")
+        in 10..80 -> println("not bad")
+        else -> println("okay")
+    }
 }
