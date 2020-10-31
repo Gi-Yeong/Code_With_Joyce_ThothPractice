@@ -16,9 +16,11 @@ fun maxBy(a: Int, b: Int): Int {
     }
 }
 
+// Expression
 fun maxBy2(a: Int, b: Int) = if (a > b) a else b
 
 fun checkNum(score: Int) {
+    // Statement
     when (score) {
         0 -> println("this is 0")
         1 -> println("this is 1")
@@ -27,6 +29,7 @@ fun checkNum(score: Int) {
     }
     
     // 이때에는 else 를 꼭 써야 한다
+    // Expression
     var b = when(score) {
         1 -> 1
         2 -> 2
@@ -41,3 +44,8 @@ fun checkNum(score: Int) {
         else -> println("okay")
     }
 }
+
+// Expression vs Statement
+// 1. 무언가 뽀짝뽀짝 해서 값을 만들면 Expression
+// 2. 그게 아니면 Statement
+// 기본적으로 코틀린의 함수는 다 Expression 이다. 리턴 값이 없어 보여도 Unit 을 리턴 하기 때문에
