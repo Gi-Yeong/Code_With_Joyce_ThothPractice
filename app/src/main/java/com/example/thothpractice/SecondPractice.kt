@@ -31,6 +31,18 @@ fun main() {
     val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
     val filtered = numbers.getHigherThan(3)
     println(filtered)
+
+    println(calculateGrade(97))
+
+    val lamda = {number: Double ->
+        number == 4.3213
+    }
+
+    println(invokeLamda(lamda))
+    println(invokeLamda { it > 3.22 })
+
+
+
 }
 
 // 확장함수
@@ -54,4 +66,20 @@ fun List<Int>.getHigherThan(num: Int): List<Int> {
         }
     }
     return result
+}
+
+// 람다의 Return
+val calculateGrade: (Int) -> String = {
+    when(it) {
+        in 0..40 -> "fail"
+        in 41..70 -> "pass"
+        in 71..100 -> "perfect"
+        else -> "Error"
+    }
+}
+
+// 람다를 표현하는 여러가지 방법
+
+fun invokeLamda(lamda: (Double) -> Boolean) : Boolean {
+    return lamda(5.2343)
 }
