@@ -20,4 +20,38 @@ fun main() {
     println(square(12))
     println(nameAge("Thoth", 99))
 
+    val a = "Thoth said"
+    val b = "mac said"
+
+    println(a.pizzaIsGreat())
+    println(b.pizzaIsGreat())
+
+    println(extendString("Thoth", 28))
+
+    val numbers: List<Int> = listOf(1, 2, 3, 4, 5, 6)
+    val filtered = numbers.getHigherThan(3)
+    println(filtered)
+}
+
+// 확장함수
+// 확장 함수는 fun 클래스이름.함수이름(인자타입): 리턴타입 { 구현부 }으로 정의
+
+val pizzaIsGreat : String.() -> String = {
+    this + "Pizza is the best!"
+}
+
+fun extendString(name: String, age: Int) : String {
+
+    val introduceMyself : String.(Int) -> String = { "I am ${this} and ${it} years old" }
+    return name.introduceMyself(age)
+}
+
+fun List<Int>.getHigherThan(num: Int): List<Int> {
+    val result = arrayListOf<Int>()
+    for (item in this) {
+        if (item > num) {
+            result.add(item)
+        }
+    }
+    return result
 }
